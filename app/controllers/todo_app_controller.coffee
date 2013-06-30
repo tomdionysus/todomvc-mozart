@@ -5,11 +5,19 @@ class App.TodoAppController extends Mozart.Controller
     App.TodoItem.createFromValues({name: 'test1', completed: false})
     App.TodoItem.createFromValues({name: 'test2', completed: true})
 
-  displayAll: =>
-    @set 'items', App.TodoItem.all()
+    @bind('change:mode',@itemsChanged)
+    App.TodoItem.bind('change',@itemsChanged)
 
-  displayActive: =>
-    @set 'items', App.TodoItem.findByAttribute('completed', false)
+    @set 'mode', 'all'
 
-  displayCompleted: =>
-    @set 'items', pp.TodoItem.findByAttribute('completed', true)
+  itemsChanged: =>
+
+    switch @mode
+      when 'completed'
+        @set 'items', App.TodoItem.findByAttribute('completed', true)
+      when 'active'
+        @set 'items', App.TodoItem.findByAttribute('completed', false)
+      else
+        @set 'items', App.TodoItem.all()
+
+    @set 'itemCount', App.TodoItem.findByAttribute('completed', false).length

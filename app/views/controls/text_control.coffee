@@ -23,5 +23,7 @@ class App.TextControl extends Mozart.Control
     return unless @element?
     @element.blur()
     
-  keyUp: (e) ->
+  keyUp: (e) =>
     @set 'value', @element.val()
+    if @keyUpAction?
+      @parent[@keyUpAction]?(e)

@@ -11,19 +11,19 @@ App.Application.set 'todoAppLayout', Mozart.Layout.create(
       viewClass: App.TodoAppView
       path: "/"
       enter: ->
-        App.todoAppController.displayAll()
+        App.todoAppController.set 'mode','all'
         true
     Mozart.Route.create
       viewClass: App.TodoAppView
       path: "/active"
       enter: ->
-        App.todoAppController.displayActive()
+        App.todoAppController.set 'mode','active'
         true
     Mozart.Route.create
       viewClass: App.TodoAppView
       path: "/completed"
       enter: ->
-        App.todoAppController.displayCompleted()
+        App.todoAppController.set 'mode','completed'
         true
   ]
 )

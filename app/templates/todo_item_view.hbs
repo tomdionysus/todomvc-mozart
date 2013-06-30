@@ -1,0 +1,6 @@
+<div class="view">
+	{{view "App.CheckboxControl" valueBinding="content.completed" classHtml="toggle"}}
+	{{view "App.TodoItemLabelView" valueObserveBinding="content.name"}}
+	<button class="destroy" {{action "removeItem"}}></button>
+</div>
+{{view "App.TextControl" name="textBox" valueBinding="content.name" classHtml='edit' keyUpAction="checkKey"}}
