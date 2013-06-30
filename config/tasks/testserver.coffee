@@ -35,4 +35,4 @@ module.exports = (grunt) ->
       app.use express.errorHandler()
 
     app.listen port
-    console.log "Mozart Empty - Express server listening on port #{port}"
+    console.log "Mozart TodoMVC - Express server listening on port #{port}"
