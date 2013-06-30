@@ -4,11 +4,10 @@ class Todo.TodoAppController extends Mozart.Controller
     Todo.TodoItem.loadAllLocalStorage()
 
     @set 'items', Todo.TodoItem
+    @set 'completedfilter', null
 
     @bind('change:mode',@itemsChanged)
-    
-    @set 'mode', 'all'
-    @set 'completedfilter', null
+    @setMode('all')
 
     Todo.TodoItem.bind('change',@fixCounts)
     @fixCounts()
@@ -22,9 +21,8 @@ class Todo.TodoAppController extends Mozart.Controller
       else
         @set 'completedfilter', ''
 
-  displayAll: => @set 'mode','all'
-  displayActive: => @set 'mode','active'
-  displayCompleted: => @set 'mode','completed'
+  setMode: (mode) =>
+    @set 'mode', mode
 
   fixCounts: =>
     @set 'displayItems', Todo.TodoItem.count() != 0

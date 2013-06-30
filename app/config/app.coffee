@@ -10,21 +10,6 @@ Todo.Application.set 'todoAppLayout', Mozart.Layout.create(
     Mozart.Route.create
       viewClass: Todo.TodoAppView
       path: "/"
-      enter: ->
-        Todo.todoAppController.set 'mode','all'
-        true
-    Mozart.Route.create
-      viewClass: Todo.TodoAppView
-      path: "/active"
-      enter: ->
-        Todo.todoAppController.set 'mode','active'
-        true
-    Mozart.Route.create
-      viewClass: Todo.TodoAppView
-      path: "/completed"
-      enter: ->
-        Todo.todoAppController.set 'mode','completed'
-        true
   ]
 )
 
@@ -47,10 +32,18 @@ Todo.Application.ready = ->
   )
 
   Todo.Application.todoAppLayout.bindRoot()
-  Todo.Application.todoAppLayout.start()
+  Todo.Application.todoAppLayout.navigateRoute('/')
 
   Todo.Application.todoInfoLayout.bindRoot()
   Todo.Application.todoInfoLayout.navigateRoute('/')
+
+  Todo.Application.set 'router', Mozart.Router.create({useHashRouting: true})
+
+  Todo.Application.router.register('/', Todo.todoAppController.setMode, 'all')
+  Todo.Application.router.register('/active', Todo.todoAppController.setMode, 'active')
+  Todo.Application.router.register('/completed', Todo.todoAppController.setMode, 'completed')
+
+  Todo.Application.router.start()
 
   $(document).trigger('Mozart:loaded')
 
