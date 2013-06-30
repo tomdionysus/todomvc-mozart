@@ -1,0 +1,25 @@
+# NPM
+node_modules
+npm_debug.log
+
+# Built Application 
+build
+public
+
+# Generated Docs
+docs
+
+# SASS
+.sass-cache
+
+# IDE metadata
+.idea
+.project
+.settings
+
+# MacOS X
+.DS_Store
+
+# Grunt configuration files
+config.json
+

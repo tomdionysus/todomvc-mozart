@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Mozart Jasmine Specs</title>
+
+    <!-- Appearance -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/default.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="jasmine/jasmine.css">
+
+    <!-- Application contents -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.rc.2/handlebars.runtime.js"></script>
+    <script src="http://cdn1.bigcommerce.com/mozart/0.1.7/mozart.min.js"></script>
+    <script src="/js/i18n/en-US.js"></script>
+
+    <!-- Testing libraries -->
+    <script src="jasmine/jasmine.js"></script>
+    <script src="jasmine/jasmine-html.js"></script>
+    <script src="sinon-1.6.0.js"></script>
+
+    <!-- Tests -->
+    <script src="specs.js"></script>
+
+    <script>
+      (function() {
+        var jasmineEnv = jasmine.getEnv();
+        jasmineEnv.updateInterval = 1000;
+
+        var htmlReporter = new jasmine.HtmlReporter();
+
+        jasmineEnv.addReporter(htmlReporter);
+
+        jasmineEnv.specFilter = function(spec) {
+          return htmlReporter.specFilter(spec);
+        };
+
+        var currentWindowOnload = window.onload;
+
+        window.onload = function() {
+          if (currentWindowOnload) {
+            currentWindowOnload();
+          }
+          window.App = {};
+          execJasmine();
+        };
+
+        function execJasmine() {
+          jasmineEnv.execute();
+        }
+
+      })();
+    </script>
+
+  </head>
+
+  <body>
+    <h1>Specs</h1>
+  </body>
+</html>

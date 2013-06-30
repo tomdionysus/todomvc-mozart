@@ -1,0 +1,16 @@
+<div class="pagination">
+  <ul>
+    <li class="disabled"><a>Page {{dispCurrentPage}} of {{pageTotal}}</a></li>
+    <li{{#if previousDisabled}} class="disabled"{{/if}}>
+      <a {{action "previous"}}>&lt;</a>
+    </li>
+    {{#each pages}}
+    <li{{#if current}} class="active"{{/if}}>
+      <a data-page="{{number}}" {{action "setPage"}}>{{text}}</a>
+    </li>
+    {{/each}}
+    <li{{#if nextDisabled}} class="disabled"{{/if}}>
+      <a {{action "next"}}>&gt;</a>
+    </li>
+  </ul>
+</div>
