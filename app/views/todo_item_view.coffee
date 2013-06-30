@@ -5,6 +5,8 @@ class App.TodoItemView extends Mozart.View
   init: ->
     super
     @content.bind 'change', @itemChanged
+    @bind 'change:completed', @focusOut
+    @load()
 
   afterRender: =>
     if @content.completed
@@ -17,13 +19,16 @@ class App.TodoItemView extends Mozart.View
     @childView('textBox').focus()
 
   focusOut: =>
+    return unless @element?
     @element.removeClass('editing')
-    @content.save()
+    @save()
 
   itemChanged: =>
-    return unless @content?
+    return unless @content? and @element?
 
-    if @content.completed 
+    @load()
+
+    if @completed 
       @element.addClass('completed') 
     else
       @element.removeClass('completed')
@@ -32,5 +37,19 @@ class App.TodoItemView extends Mozart.View
     @content.destroy()
 
   checkKey: (e) =>
-    @childView('textBox').blur() if e.keyCode == 27 || e.keyCode == 13
+    switch e.keyCode
+      when 13
+        @childView('textBox').blur()
+      when 27
+        @load() 
+        @childView('textBox').blur()
+
+  load: =>
+    @set 'name', @content.name
+    @set 'completed', @content.completed
+
+  save: =>
+    @content.set 'name', @name
+    @content.set 'completed', @completed
+    @content.save()
 

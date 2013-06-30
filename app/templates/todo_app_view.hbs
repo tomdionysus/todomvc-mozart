@@ -1,28 +1,27 @@
 <header id="header">
   <h1>todos</h1>
-  <input id="new-todo" placeholder="What needs to be done?" autofocus>
+  {{view "App.TodoNewItemView"}}
 </header>
-<!-- This section should be hidden by default and shown when there are todos -->
-<section id="main">
+{{#view id="main" tag="section" displayBinding="App.todoAppController.displayItems"}}
+  <!-- This section should be hidden by default and shown when there are todos -->
   <input id="toggle-all" type="checkbox">
   <label for="toggle-all">Mark all as complete</label>
-  {{collection "App.TodoItemView" collectionObserveBinding="App.todoAppController.items" id="todo-list"}}
-</section>
-<!-- This footer should hidden by default and shown when there are todos -->
+  {{collection "App.TodoItemView" collectionObserveBinding="App.todoAppController.items" id="todo-list" filterAttribute="completed" filterTextObserveBinding="App.todoAppController.completedfilter"}}
+{{/view}}
 <footer id="footer">
   <!-- This should be `0 items left` by default -->
   <span id="todo-count">{{bind "App.todoAppController.itemCount" tag="strong"}} items left</span>
   <!-- Remove this if you don't implement routing -->
   <ul id="filters">
     <li>
-      <a class="selected" href="/">All</a>
+      <a class="selected" {{action "displayAll" target='App.todoAppController'}}>All</a>
     </li>
     <li>
-      <a href="/active">Active</a>
+      <a {{action "displayActive" target="App.todoAppController"}}>Active</a>
     </li>
     <li>
-      <a href="/completed">Completed</a>
+      <a {{action "displayCompleted" target="App.todoAppController"}}>Completed</a>
     </li>
   </ul>
-  <button id="clear-completed">Clear completed (1)</button>
+  <button id="clear-completed" {{action "clearCompleted" target="App.todoAppController"}}>Clear completed ({{bind "App.todoAppController.completedItemCount"}})</button>
 </footer>

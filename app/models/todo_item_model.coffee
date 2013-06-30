@@ -6,3 +6,5 @@ App.TodoItem.attributes
   'completed': 'string'
 
 App.TodoItem.index 'state'
+
+App.TodoItem.localStorage('mozart-todomvc')
