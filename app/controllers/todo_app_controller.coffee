@@ -14,7 +14,6 @@ class App.TodoAppController extends Mozart.Controller
     @fixCounts()
 
   itemsChanged: =>
-
     switch @mode
       when 'completed'
         @set 'completedfilter', 'true'
@@ -38,4 +37,15 @@ class App.TodoAppController extends Mozart.Controller
 
   clearCompleted: =>
     item.destroy() for item in App.TodoItem.all() when item.completed
+
+  toggleAllVisible: =>
+    switch @mode
+      when 'completed'
+        items = App.TodoItem.findByAttribute('completed', true)
+      when 'active'
+        items = App.TodoItem.findByAttribute('completed', false)
+      else
+        items = App.TodoItem.all()
+
+    item.set('completed',!item.completed) for item in items
       
