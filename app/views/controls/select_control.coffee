@@ -1,4 +1,4 @@
-class App.SelectControl extends Mozart.Control
+class Todo.SelectControl extends Mozart.Control
   tag: 'select'
   skipTemplate: true
   idField: 'id'

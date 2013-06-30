@@ -1,4 +1,4 @@
-class App.TodoFiltersView extends Mozart.View
+class Todo.TodoFiltersView extends Mozart.View
   templateName: 'app/templates/todo_filters_view'
   tag: 'ul'
   id: 'filters'

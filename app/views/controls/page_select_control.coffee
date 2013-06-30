@@ -1,4 +1,4 @@
-class App.PageSelectControl extends Mozart.Control
+class Todo.PageSelectControl extends Mozart.Control
   templateName: 'app/templates/controls/page_select_control'
   pages: []
 

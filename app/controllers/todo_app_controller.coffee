@@ -1,16 +1,16 @@
-class App.TodoAppController extends Mozart.Controller
+class Todo.TodoAppController extends Mozart.Controller
 
   init: ->
-    App.TodoItem.loadAllLocalStorage()
+    Todo.TodoItem.loadAllLocalStorage()
 
-    @set 'items', App.TodoItem
+    @set 'items', Todo.TodoItem
 
     @bind('change:mode',@itemsChanged)
     
     @set 'mode', 'all'
     @set 'completedfilter', null
 
-    App.TodoItem.bind('change',@fixCounts)
+    Todo.TodoItem.bind('change',@fixCounts)
     @fixCounts()
 
   itemsChanged: =>
@@ -27,25 +27,25 @@ class App.TodoAppController extends Mozart.Controller
   displayCompleted: => @set 'mode','completed'
 
   fixCounts: =>
-    @set 'displayItems', App.TodoItem.count() != 0
-    @set 'itemCount', App.TodoItem.findByAttribute('completed', false).length
-    @set 'completedItemCount', App.TodoItem.count() - @itemCount
+    @set 'displayItems', Todo.TodoItem.count() != 0
+    @set 'itemCount', Todo.TodoItem.findByAttribute('completed', false).length
+    @set 'completedItemCount', Todo.TodoItem.count() - @itemCount
 
   createItem: (name) =>
-    App.TodoItem.createFromValues({name:name, completed: false})
+    Todo.TodoItem.createFromValues({name:name, completed: false})
     @fixCounts()
 
   clearCompleted: =>
-    item.destroy() for item in App.TodoItem.all() when item.completed
+    item.destroy() for item in Todo.TodoItem.all() when item.completed
 
   toggleAllVisible: =>
     switch @mode
       when 'completed'
-        items = App.TodoItem.findByAttribute('completed', true)
+        items = Todo.TodoItem.findByAttribute('completed', true)
       when 'active'
-        items = App.TodoItem.findByAttribute('completed', false)
+        items = Todo.TodoItem.findByAttribute('completed', false)
       else
-        items = App.TodoItem.all()
+        items = Todo.TodoItem.all()
 
     item.set('completed',!item.completed) for item in items
       

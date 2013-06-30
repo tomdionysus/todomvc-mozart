@@ -1,4 +1,4 @@
-class App.RadioControl extends Mozart.Control
+class Todo.RadioControl extends Mozart.Control
   tag: 'form'
   skipTemplate: true
   idField: 'id'

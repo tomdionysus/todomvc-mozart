@@ -1,4 +1,4 @@
-class App.CollectionPageControl extends Mozart.Control
+class Todo.CollectionPageControl extends Mozart.Control
   templateName: 'app/templates/controls/collection_page_control'
 
   init: ->

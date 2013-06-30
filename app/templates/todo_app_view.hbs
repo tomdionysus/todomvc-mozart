@@ -1,14 +1,14 @@
 <header id="header">
   <h1>todos</h1>
-  {{view "App.TodoNewItemView"}}
+  {{view "Todo.TodoNewItemView"}}
 </header>
-{{#view id="main" tag="section" displayBinding="App.todoAppController.displayItems"}}
-  <input {{action "toggleAllVisible" target="App.todoAppController"}} id="toggle-all" type="checkbox">
+{{#view id="main" tag="section" displayBinding="Todo.todoAppController.displayItems"}}
+  <input {{action "toggleAllVisible" target="Todo.todoAppController"}} id="toggle-all" type="checkbox">
   <label for="toggle-all">Mark all as complete</label>
-  {{collection "App.TodoItemView" collectionObserveBinding="App.todoAppController.items" id="todo-list" filterAttribute="completed" filterTextObserveBinding="App.todoAppController.completedfilter"}}
+  {{collection "Todo.TodoItemView" collectionObserveBinding="Todo.todoAppController.items" id="todo-list" filterAttribute="completed" filterTextObserveBinding="Todo.todoAppController.completedfilter"}}
 {{/view}}
 <footer id="footer">
-  <span id="todo-count">{{bind "App.todoAppController.itemCount" tag="strong"}} items left</span>
-  {{view "App.TodoFiltersView" modeObserveBinding="App.todoAppController.mode"}}
-  <button id="clear-completed" {{action "clearCompleted" target="App.todoAppController"}}>Clear completed ({{bind "App.todoAppController.completedItemCount"}})</button>
+  <span id="todo-count">{{bind "Todo.todoAppController.itemCount" tag="strong"}} items left</span>
+  {{view "Todo.TodoFiltersView" modeObserveBinding="Todo.todoAppController.mode"}}
+  <button id="clear-completed" {{action "clearCompleted" target="Todo.todoAppController"}}>Clear completed ({{bind "Todo.todoAppController.completedItemCount"}})</button>
 </footer>

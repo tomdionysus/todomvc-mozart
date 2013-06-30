@@ -1,4 +1,4 @@
-class App.TextControl extends Mozart.Control
+class Todo.TextControl extends Mozart.Control
   tag: "input"
   skipTemplate: true
 

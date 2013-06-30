@@ -1,12 +1,12 @@
 # Define the namespace.
-window.App = @App = App = {}
+window.Todo = @Todo = Todo = {}
 
 # Setup Logging.
-App.log = (status) ->
+Todo.log = (status) ->
   console.log("LOG:", status) if console?
 
-App.warn = (status) ->
+Todo.warn = (status) ->
   console.log("WARNING:", status) if console?
 
-App.title = (title) ->
+Todo.title = (title) ->
   window.title = title if window?

@@ -1,4 +1,4 @@
-class App.ModalControl extends Mozart.Control
+class Todo.ModalControl extends Mozart.Control
 
   afterRender: =>
     @element.hide()

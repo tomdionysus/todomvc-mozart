@@ -1,58 +1,58 @@
-App.todoAppController = App.TodoAppController.create()
+Todo.todoAppController = Todo.TodoAppController.create()
 
 Mozart.root = window
 
-App.Application = Mozart.MztObject.create()
+Todo.Application = Mozart.MztObject.create()
 
-App.Application.set 'todoAppLayout', Mozart.Layout.create(
+Todo.Application.set 'todoAppLayout', Mozart.Layout.create(
   rootElement: '#todoapp'
   states: [
     Mozart.Route.create
-      viewClass: App.TodoAppView
+      viewClass: Todo.TodoAppView
       path: "/"
       enter: ->
-        App.todoAppController.set 'mode','all'
+        Todo.todoAppController.set 'mode','all'
         true
     Mozart.Route.create
-      viewClass: App.TodoAppView
+      viewClass: Todo.TodoAppView
       path: "/active"
       enter: ->
-        App.todoAppController.set 'mode','active'
+        Todo.todoAppController.set 'mode','active'
         true
     Mozart.Route.create
-      viewClass: App.TodoAppView
+      viewClass: Todo.TodoAppView
       path: "/completed"
       enter: ->
-        App.todoAppController.set 'mode','completed'
+        Todo.todoAppController.set 'mode','completed'
         true
   ]
 )
 
-App.Application.set 'todoInfoLayout', Mozart.Layout.create(
+Todo.Application.set 'todoInfoLayout', Mozart.Layout.create(
   rootElement: '#info'
   states: [
     Mozart.Route.create
-      viewClass: App.TodoInfoView
+      viewClass: Todo.TodoInfoView
       path: "/"
   ]
 )
 
-App.Application.ready = ->
-  App.Application.set 'domManager', Mozart.DOMManager.create(
+Todo.Application.ready = ->
+  Todo.Application.set 'domManager', Mozart.DOMManager.create(
     rootElement: 'body'
     layouts: [ 
-      App.Application.todoAppLayout
-      App.Application.todoInfoLayout
+      Todo.Application.todoAppLayout
+      Todo.Application.todoInfoLayout
     ]
   )
 
-  App.Application.todoAppLayout.bindRoot()
-  App.Application.todoAppLayout.start()
+  Todo.Application.todoAppLayout.bindRoot()
+  Todo.Application.todoAppLayout.start()
 
-  App.Application.todoInfoLayout.bindRoot()
-  App.Application.todoInfoLayout.navigateRoute('/')
+  Todo.Application.todoInfoLayout.bindRoot()
+  Todo.Application.todoInfoLayout.navigateRoute('/')
 
   $(document).trigger('Mozart:loaded')
 
-$(document).ready(App.Application.ready)
+$(document).ready(Todo.Application.ready)
     

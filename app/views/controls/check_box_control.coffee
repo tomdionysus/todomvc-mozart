@@ -1,4 +1,4 @@
-class App.CheckboxControl extends Mozart.Control
+class Todo.CheckboxControl extends Mozart.Control
   tag: 'input'
   typeHtml: 'checkbox'
   skipTemplate: true

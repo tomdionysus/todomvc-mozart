@@ -1,4 +1,4 @@
-class App.TodoItemView extends Mozart.View
+class Todo.TodoItemView extends Mozart.View
   templateName: 'app/templates/todo_item_view'
   tag: 'li'
 
