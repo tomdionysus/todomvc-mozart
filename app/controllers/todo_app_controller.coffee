@@ -33,7 +33,7 @@ class Todo.AppController extends Mozart.Controller
 
   createItem: (title) =>
     return unless title? and title.length>0
-    Todo.Item.createFromValues({title:title.trim(), completed: false})
+    Todo.Item.createFromValues({title: title.trim(), completed: false})
     @itemsChanged()
 
   clearCompleted: =>

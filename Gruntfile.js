@@ -154,8 +154,8 @@ module.exports = function (grunt) {
                 'public/specs/sinon-1.6.0.js',
 
                 // Application content.
+                'public/js/i18n/en.js',
                 'public/js/app.js',
-                'public/i18n/en-US.js'
             ],
             options: {
                 helpers: 'public/specs/init.js',
