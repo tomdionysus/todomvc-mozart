@@ -209,6 +209,11 @@ module.exports = function (grunt) {
                 tasks: ['coffeelint', 'coffee', 'uglify'],
                 options: { livereload: 36729 },
             },
+            lang: {
+                files: 'app/lang/*.json',
+                tasks: ['messageformat'],
+                options: { livereload: 36729 },
+            },
             assets: {
                 files: 'app/assets/**/*.*',
                 tasks: ['copy'],

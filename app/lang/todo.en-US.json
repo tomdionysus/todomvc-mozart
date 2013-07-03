@@ -1,0 +1,16 @@
+{
+	"todos": "todos",
+
+	"markAllAsComplete": "Mark all as complete",
+    "itemCount": "{ITEMS} {ITEMS, plural, one{item} other{items}} left",
+	"clearCompleted": "Clear completed",
+    
+    "all":"All",
+    "active":"Active",
+    "complete":"Complete",
+    
+	"doubleClickEdit": "Double-click to edit a todo",
+    "fullSource": "Full Source",
+    "createdBy": "Created by <a href=\"{URL}\">{NAME}</a>",
+    "partOf": "Part of <a href=\"{URL}\">{NAME}</a>"
+}
