@@ -4,10 +4,8 @@
 </header>
 
 {{#view id="main" tag="section" displayObserveBinding="Todo.appController.displayItems"}}
-  {{view "Todo.CheckboxControl" id="toggle-all" valueObserveBinding="Todo.appController.allChecked" checkAction="Todo.appController.setCheckAll" typeHtml="checkbox"}}
- 
+  {{view "Todo.CheckboxControl" id="toggle-all" valueObserveBinding="Todo.appController.allChecked" checkAction="Todo.appController.setCheckAll"}}
   <label for="toggle-all">{{i18n "todo.markAllAsComplete"}}</label>
-
   {{collection "Todo.ItemView" collectionObserveBinding="Todo.appController.items" id="todo-list" filterAttribute="completed" filterTextObserveBinding="Todo.appController.completedfilter"}}
 {{/view}}
 
