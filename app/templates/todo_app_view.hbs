@@ -11,8 +11,8 @@
   {{collection "Todo.ItemView" collectionObserveBinding="Todo.appController.items" id="todo-list" filterAttribute="completed" filterTextObserveBinding="Todo.appController.completedfilter"}}
 {{/view}}
 
-<footer id="footer">
+{{#view id="footer" tag="footer" displayObserveBinding="Todo.appController.displayItems"}}
   <span id="todo-count">{{bindI18n "todo.itemCount" ITEMSObserveBinding="Todo.appController.itemCount" tag='strong'}}</span>
   {{view "Todo.FiltersView" modeObserveBinding="Todo.appController.mode"}}
   {{view "Todo.ClearCompletedControl" valueObserveBinding="Todo.appController.completedItemCount"}}
-</footer>
+{{/view}}
