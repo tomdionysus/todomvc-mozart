@@ -1,4 +1,4 @@
-class Todo.TodoClearCompletedControl extends Mozart.View
+class Todo.ClearCompletedControl extends Mozart.View
   templateName: 'app/templates/controls/todo_clear_completed_control'
   tag: 'button'
   id: "clear-completed"
@@ -11,5 +11,5 @@ class Todo.TodoClearCompletedControl extends Mozart.View
     @display = @value!=0
 
   click: =>
-    Todo.todoAppController.clearCompleted()
+    Todo.appController.clearCompleted()
 

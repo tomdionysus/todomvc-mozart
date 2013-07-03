@@ -1,4 +1,4 @@
-class Todo.TodoItemView extends Mozart.View
+class Todo.ItemView extends Mozart.View
   templateName: 'app/templates/todo_item_view'
   tag: 'li'
 
@@ -11,8 +11,6 @@ class Todo.TodoItemView extends Mozart.View
     @itemChanged()
 
   editItem: =>
-    return if @content.completed
-
     @element.addClass('editing')
     @childView('textBox').focus()
 

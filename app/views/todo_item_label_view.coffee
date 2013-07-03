@@ -1,4 +1,4 @@
-class Todo.TodoItemLabelView extends Mozart.View
+class Todo.ItemLabelView extends Mozart.View
   skipTemplate: true
   tag: "label"
 

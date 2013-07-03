@@ -1,16 +1,16 @@
-class Todo.TodoAppController extends Mozart.Controller
+class Todo.AppController extends Mozart.Controller
 
   init: ->
-    Todo.TodoItem.loadAllLocalStorage()
+    Todo.Item.loadAllLocalStorage()
 
-    @set 'items', Todo.TodoItem
+    @set 'items', Todo.Item
     @set 'completedfilter', null
 
     @bind('change:mode',@modeChanged)
 
     @set 'mode', 'all'
 
-    Todo.TodoItem.bind('change',@itemsChanged)
+    Todo.Item.bind('change',@itemsChanged)
     @itemsChanged()
 
   modeChanged: =>
@@ -26,21 +26,21 @@ class Todo.TodoAppController extends Mozart.Controller
     @set 'mode', mode
 
   itemsChanged: =>
-    @set 'displayItems', Todo.TodoItem.count() != 0
-    @set 'itemCount', Todo.TodoItem.findByAttribute('completed', false).length
-    @set 'completedItemCount', Todo.TodoItem.count() - @itemCount
+    @set 'displayItems', Todo.Item.count() != 0
+    @set 'itemCount', Todo.Item.findByAttribute('completed', false).length
+    @set 'completedItemCount', Todo.Item.count() - @itemCount
     @set 'allChecked', @itemCount == 0
 
   createItem: (name) =>
     return unless name? and name.length>0
-    Todo.TodoItem.createFromValues({name:name.trim(), completed: false})
+    Todo.Item.createFromValues({name:name.trim(), completed: false})
     @itemsChanged()
 
   clearCompleted: =>
-    item.destroy() for item in Todo.TodoItem.all() when item.completed
+    item.destroy() for item in Todo.Item.all() when item.completed
 
   setCheckAll: (view, checked) ->
-    for item in Todo.TodoItem.all()
+    for item in Todo.Item.all()
       item.set('completed', checked)
       item.save()
 

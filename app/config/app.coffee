@@ -1,23 +1,23 @@
-Todo.todoAppController = Todo.TodoAppController.create()
+Todo.appController = Todo.AppController.create()
 
 Mozart.root = window
 
 Todo.Application = Mozart.MztObject.create()
 
-Todo.Application.set 'todoAppLayout', Mozart.Layout.create(
+Todo.Application.set 'appLayout', Mozart.Layout.create(
   rootElement: '#todoapp'
   states: [
     Mozart.Route.create
-      viewClass: Todo.TodoAppView
+      viewClass: Todo.AppView
       path: "/"
   ]
 )
 
-Todo.Application.set 'todoInfoLayout', Mozart.Layout.create(
+Todo.Application.set 'infoLayout', Mozart.Layout.create(
   rootElement: '#info'
   states: [
     Mozart.Route.create
-      viewClass: Todo.TodoInfoView
+      viewClass: Todo.InfoView
       path: "/"
   ]
 )
@@ -26,22 +26,22 @@ Todo.Application.ready = ->
   Todo.Application.set 'domManager', Mozart.DOMManager.create(
     rootElement: 'body'
     layouts: [ 
-      Todo.Application.todoAppLayout
-      Todo.Application.todoInfoLayout
+      Todo.Application.appLayout
+      Todo.Application.infoLayout
     ]
   )
 
-  Todo.Application.todoAppLayout.bindRoot()
-  Todo.Application.todoAppLayout.navigateRoute('/')
+  Todo.Application.appLayout.bindRoot()
+  Todo.Application.appLayout.navigateRoute('/')
 
-  Todo.Application.todoInfoLayout.bindRoot()
-  Todo.Application.todoInfoLayout.navigateRoute('/')
+  Todo.Application.infoLayout.bindRoot()
+  Todo.Application.infoLayout.navigateRoute('/')
 
   Todo.Application.set 'router', Mozart.Router.create({useHashRouting: true})
 
-  Todo.Application.router.register('/', Todo.todoAppController.setMode, 'all')
-  Todo.Application.router.register('/active', Todo.todoAppController.setMode, 'active')
-  Todo.Application.router.register('/completed', Todo.todoAppController.setMode, 'completed')
+  Todo.Application.router.register('/', Todo.appController.setMode, 'all')
+  Todo.Application.router.register('/active', Todo.appController.setMode, 'active')
+  Todo.Application.router.register('/completed', Todo.appController.setMode, 'completed')
 
   Todo.Application.router.start()
 
