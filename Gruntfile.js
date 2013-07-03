@@ -77,10 +77,6 @@ module.exports = function (grunt) {
                         // The boot file needs to come first.
                         'app/config/boot.coffee',
 
-                        // Plugins
-                        'app/plugins/*.coffee',
-                        'app/plugins/**/*.coffee',
-
                         // Models.
                         'app/models/*.coffee',
 
