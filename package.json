@@ -1,19 +1,19 @@
 {
   "author": "Tom Cully",
-  "name": "mozart-empty",
-  "description": "Empty Mozart Project",
+  "name": "todomvc-mozart",
+  "description": "The Mozart TodoMVC application",
   "version": "0.0.1",
-  "homepage": "",
+  "homepage": "https://github.com/tomcully/todomvc-mozart",
   "repository": {
     "type": "git",
-    "url": "git@github.com:bigcommerce/mozart-empty.git"
+    "url": "git@github.com:tomcully/todomvc-mozart.git"
   },
   "engines": {
     "node": "0.8.x"
   },
   "scripts": {
     "start": "grunt run",
-    "test": "grunt build jasmine"
+    "test": "grunt test"
   },
   "dependencies": {
     "express": "3.0.x",
@@ -28,7 +28,6 @@
     "grunt-contrib-clean": "0.4.1",
     "grunt-contrib-concat": "0.3.0",
     "grunt-contrib-watch": "0.4.1",
-    "grunt-contrib-sass": "0.3.x",
     "handlebars": "1.0.11",
     "messageformat": "0.1.x",
     "underscore.string": "2.3.x"
