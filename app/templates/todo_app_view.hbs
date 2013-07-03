@@ -14,5 +14,5 @@
 <footer id="footer">
   <span id="todo-count">{{bind "Todo.todoAppController.itemCount" tag="strong"}} items left</span>
   {{view "Todo.TodoFiltersView" modeObserveBinding="Todo.todoAppController.mode"}}
-  <button id="clear-completed" {{action "clearCompleted" target="Todo.todoAppController"}}>Clear completed ({{bind "Todo.todoAppController.completedItemCount"}})</button>
+  {{view "Todo.TodoClearCompletedControl" valueObserveBinding="Todo.todoAppController.completedItemCount"}}
 </footer>
