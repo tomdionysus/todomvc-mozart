@@ -14,15 +14,19 @@ class Todo.ItemView extends Mozart.View
     @element.addClass('editing')
     @childView('textBox').focus()
 
-  focusOut: =>
+  focusOut: (args...) =>
     return unless @element?
     @element.removeClass('editing')
-    @save()
+    if @title.length == 0
+      @removeItem()
+    else
+      @save() if @isDirty()
 
   itemChanged: =>
     return unless @content? and @element?
 
     @load()
+
     if @completed 
       @element.addClass('completed') 
     else
@@ -38,6 +42,9 @@ class Todo.ItemView extends Mozart.View
       when 27
         @load() 
         @childView('textBox').blur()
+
+  isDirty: =>
+    @content.title!=@title or @content.completed!=@completed
 
   load: =>
     @set 'title', @content.title
