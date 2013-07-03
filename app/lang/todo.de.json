@@ -1,0 +1,18 @@
+{
+	"todos": "todos",
+
+    "whatNeedsDone": "Was getan werden muss?",
+
+	"markAllAsComplete": "Markiere alle als komplette",
+    "itemCount": "{ITEMS} Stück verbleibenden",
+	"clearCompleted": "Löschen abgeschlossen",
+    
+    "all": "Alle",
+    "active": "Aktiv",
+    "complete": "Vollständig",
+    
+	"doubleClickEdit": "Doppelklicken Sie auf eine todo bearbeiten",
+    "fullSource": "github",
+    "createdBy": "Erstellt von <a href=\"{URL}\">{NAME}</a>",
+    "partOf": "Teil <a href=\"{URL}\">{NAME}</a>"
+}

@@ -1,5 +1,5 @@
 class Todo.NewItemControl extends Todo.TextControl
-  placeholderHtml: 'What needs to be done?'
+  placeholderHtml: i18n.todo.whatNeedsDone()
   autofocusHtml: ''
   id: 'new-todo'
 

@@ -1,6 +1,8 @@
 {
 	"todos": "todos",
 
+    "whatNeedsDone": "What needs to be done?",
+
 	"markAllAsComplete": "Mark all as complete",
     "itemCount": "{ITEMS} {ITEMS, plural, one{item} other{items}} left",
 	"clearCompleted": "Clear completed",

@@ -1,0 +1,18 @@
+{
+	"todos": "todos",
+
+    "whatNeedsDone": "¿Qué se necesita hacer?",
+
+	"markAllAsComplete": "Markiere alle als komplette",
+    "itemCount": "{ITEMS} {ITEMS, plural, one{item restante} other{ítems restantes}}",
+    "clearCompleted": "Borrar completado",
+    
+    "all":"Todo",
+    "active":"Vigente",
+    "complete":"Completo",
+    
+    "doubleClickEdit": "Haga doble clic para editar un todo",
+    "fullSource": "github",
+    "createdBy": "Creado por <a href=\"{URL}\">{NAME}</a>",
+    "partOf": "Una parte de <a href=\"{URL}\">{NAME}</a>"
+}
