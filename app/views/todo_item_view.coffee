@@ -40,11 +40,11 @@ class Todo.ItemView extends Mozart.View
         @childView('textBox').blur()
 
   load: =>
-    @set 'name', @content.name
+    @set 'title', @content.title
     @set 'completed', @content.completed
 
   save: =>
-    @content.set 'name', @name
+    @content.set 'title', @title
     @content.set 'completed', @completed
     @content.save()
 

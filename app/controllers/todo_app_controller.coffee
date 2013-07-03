@@ -31,9 +31,9 @@ class Todo.AppController extends Mozart.Controller
     @set 'completedItemCount', Todo.Item.count() - @itemCount
     @set 'allChecked', @itemCount == 0
 
-  createItem: (name) =>
-    return unless name? and name.length>0
-    Todo.Item.createFromValues({name:name.trim(), completed: false})
+  createItem: (title) =>
+    return unless title? and title.length>0
+    Todo.Item.createFromValues({title:title.trim(), completed: false})
     @itemsChanged()
 
   clearCompleted: =>

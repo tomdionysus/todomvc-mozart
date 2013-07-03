@@ -1,6 +1,6 @@
 <div class="view">
 	{{view "Todo.CheckboxControl" valueBinding="completed" classHtml="toggle"}}
-	{{view "Todo.ItemLabelView" valueObserveBinding="name"}}
+	{{view "Todo.ItemLabelView" valueObserveBinding="title"}}
 	<button class="destroy" {{action "removeItem"}}></button>
 </div>
-{{view "Todo.TextControl" name="textBox" valueBinding="name" classHtml='edit' keyUpAction="checkKey"}}
+{{view "Todo.TextControl" name="textBox" valueBinding="title" classHtml='edit' keyUpAction="checkKey"}}
