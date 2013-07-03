@@ -12,7 +12,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-contrib-sass');
 
     // Load our custom tasks.
     grunt.loadTasks('config/tasks');
@@ -191,22 +190,6 @@ module.exports = function (grunt) {
         },
 
         /**
-         * This task handles compiling our SASS files into actual CSS the browser can use. This task is nothing more
-         * than a thin wrapper to the regular SASS gem - the point is just to give you a central place you can
-         * configure paths, and also bind Watch tasks.
-         *
-         * If you don't want to use SASS, or want to manage it manually by other means, just remove 'sass' from the
-         * 'run' shortcut below, and remove the accompanying 'scss' block from the 'watch' task.
-         */
-        sass: {
-            app: {
-                files: {
-                    'public/css/app.css': 'app/scss/*'                    
-                }
-            }
-        },
-
-        /**
          * This task fires up a simple Express application, running on the given port and serving files from the given
          * directory. It is useful for stubbing out RESTful functionality etc. Should you wish to expand upon and make
          * changes to the Express app, see 'config/tasks/testserver.coffee'.
@@ -242,11 +225,6 @@ module.exports = function (grunt) {
                 tasks: ['messageformat'],
                 options: { livereload: 36729 },
             },
-            scss: {
-                files: 'app/scss/**/*.scss',
-                tasks: ['sass'],
-                options: { livereload: 36729 },
-            }
         }
     });
 
@@ -258,7 +236,7 @@ module.exports = function (grunt) {
     /**
      * This task is responsible for copying, compiling and concatenating all the various aspects of your application.
      */
-    grunt.registerTask('build', ['clean', 'copy', 'coffee', 'handlebars', 'sass', 'concat', 'messageformat']);
+    grunt.registerTask('build', ['clean', 'copy', 'coffee', 'handlebars', 'concat', 'messageformat']);
 
     function getTestServerPort() {
         /**

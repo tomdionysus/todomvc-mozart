@@ -16,6 +16,7 @@ docs
 .idea
 .project
 .settings
+.grunt
 
 # MacOS X
 .DS_Store
