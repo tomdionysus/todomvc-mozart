@@ -120,7 +120,7 @@ module.exports = function (grunt) {
          * templates. Run the task for full instructions.
          */
         generate: {
-            name: 'App',
+            name: 'Todo',
             root: 'app/'
         },
 
