@@ -8,7 +8,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-coffee');
     grunt.loadNpmTasks('grunt-contrib-handlebars');
     grunt.loadNpmTasks('grunt-contrib-jasmine');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
@@ -110,7 +110,7 @@ module.exports = function (grunt) {
         },
 
         // Handle concatenating our various files inc plugins.
-        uglify: {
+        concat: {
             vendor: {
                 src: [
                   'build/*.js',
@@ -206,7 +206,7 @@ module.exports = function (grunt) {
         watch: {
             app: {
                 files: 'app/**/*.coffee',
-                tasks: ['coffeelint', 'coffee', 'uglify'],
+                tasks: ['coffeelint', 'coffee', 'concat'],
                 options: { livereload: 36729 },
             },
             lang: {
@@ -221,7 +221,7 @@ module.exports = function (grunt) {
             },
             handlebars: {
                 files: 'app/templates/**/*.hbs',
-                tasks: ['handlebars' , 'uglify'],
+                tasks: ['handlebars' , 'concat'],
                 options: { livereload: 36729 },
             },
             messageformat: {
@@ -240,7 +240,7 @@ module.exports = function (grunt) {
     /**
      * This task is responsible for copying, compiling and concatenating all the various aspects of your application.
      */
-    grunt.registerTask('build', ['clean', 'copy', 'coffee', 'handlebars', 'uglify', 'messageformat']);
+    grunt.registerTask('build', ['clean', 'copy', 'coffee', 'handlebars', 'concat', 'messageformat']);
 
     function getTestServerPort() {
         /**
