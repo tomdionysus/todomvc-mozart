@@ -7,6 +7,17 @@ class Todo.CheckboxControl extends Mozart.Control
     super
     @bind 'change:value', @updateValue
 
+    # Considering making this available for all views in 0.1.9
+    if @checkAction
+      [target, method] = Mozart.parsePath(@checkAction)
+      if target?
+        target = Mozart.getPath(@parent,target)
+      else
+        target = @parent
+      @bind('check', (data) =>
+        target[method](@, data)
+      )
+
   afterRender: =>
     @updateValue()
 
@@ -16,7 +27,8 @@ class Todo.CheckboxControl extends Mozart.Control
 
   setValue: ->
     return unless @element?
-    @set('value',@element[0].checked)
+    @trigger('check',@element[0].checked)
+    @set('value', @element[0].checked)
 
   change: ->
     @setValue()

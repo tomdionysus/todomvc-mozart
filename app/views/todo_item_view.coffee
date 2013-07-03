@@ -6,11 +6,9 @@ class Todo.TodoItemView extends Mozart.View
     super
     @content.bind 'change', @itemChanged
     @bind 'change:completed', @focusOut
-    @load()
 
   afterRender: =>
-    if @content.completed
-      @element.addClass('completed')
+    @itemChanged()
 
   editItem: =>
     return if @content.completed
@@ -27,7 +25,6 @@ class Todo.TodoItemView extends Mozart.View
     return unless @content? and @element?
 
     @load()
-
     if @completed 
       @element.addClass('completed') 
     else

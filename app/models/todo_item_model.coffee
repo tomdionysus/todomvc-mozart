@@ -3,8 +3,8 @@ Todo.TodoItem = Mozart.Model.create
 
 Todo.TodoItem.attributes
   'name': 'string'
-  'completed': 'string'
+  'completed': 'boolean'
 
 Todo.TodoItem.index 'state'
 
-Todo.TodoItem.localStorage('mozart-todomvc')
+Todo.TodoItem.localStorage()

@@ -1,4 +1,4 @@
-class Todo.TodoNewItemView extends Todo.TextControl
+class Todo.TodoNewItemControl extends Todo.TextControl
   placeholderHtml: 'What needs to be done?'
   autofocusHtml: ''
   id: 'new-todo'
