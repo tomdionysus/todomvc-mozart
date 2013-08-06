@@ -1,5 +1,5 @@
 # Define the namespace.
-window.Todo = @Todo = Todo = {}
+window.Todo = {}
 
 # Setup Logging.
 Todo.log = (status) ->
